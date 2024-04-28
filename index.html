@@ -253,7 +253,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2024/04/03/git-%E6%81%90%E6%80%95%E6%B2%A1%E4%BD%A0%E6%83%B3%E7%9A%84%E9%82%A3%E4%B9%88%E7%AE%80%E5%8D%95/" class="post-title-link" itemprop="url">git:恐怕没你想的那么简单</a>
+            <a href="/2024/04/03/git-%E6%81%90%E6%80%95%E6%B2%A1%E4%BD%A0%E6%83%B3%E7%9A%84%E9%82%A3%E4%B9%88%E7%AE%80%E5%8D%95/" class="post-title-link" itemprop="url">Git:恐怕没你想的那么简单</a>
         </h2>
 
         <div class="post-meta">
@@ -265,6 +265,26 @@
               <span class="post-meta-item-text">发表于</span>
 
               <time title="创建时间：2024-04-03 14:16:12" itemprop="dateCreated datePublished" datetime="2024-04-03T14:16:12+08:00">2024-04-03</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2024-04-28 13:33:08" itemprop="dateModified" datetime="2024-04-28T13:33:08+08:00">2024-04-28</time>
+              </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/" itemprop="url" rel="index"><span itemprop="name">技术</span></a>
+                </span>
+                  ，
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%8A%80%E6%9C%AF/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a>
+                </span>
             </span>
 
           
@@ -278,7 +298,346 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          
+          <h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>众所周知，Git是一个开源的分布式版本控制系统，它允许多个开发者在各自的本地环境中工作，同时保持与其他开发者的协作和同步。其设计目的是为了提高大型项目的效率和速度。这里是Git的一些关键特点和原理：</p>
+<ol>
+<li><strong>分布式架构</strong>：与集中式版本控制系统不同，Git在每个开发者的机器上都创建一个完整的仓库副本，包括代码的完整历史记录。这意味着即使远程服务器不可用，每个开发者也可以在本地继续工作，并且拥有完整的项目历史。</li>
+<li><strong>数据完整性</strong>：Git在保存到仓库中的每个文件和提交时都使用SHA-1散列算法来确保数据的完整性和一致性。每个文件和提交都有一个唯一的散列值，确保了历史记录的不可变性。</li>
+<li><strong>支持非线性开发流程</strong>：Git支持快速、高效的分支和合并操作，允许开发者在不同的分支上独立工作，进行特性开发、修复或实验，之后可以将这些分支合并回主分支。</li>
+<li><strong>性能优异</strong>：Git在执行常见操作如提交、分支、合并和比较历史记录等时非常快速高效。</li>
+<li><strong>易于备份</strong>：由于Git是分布式的，每个开发者的机器上都有一个完整的仓库副本，这自然地为项目提供了多重备份。并且Git允许你返回之前的版本，这使得当你现在的工作出现问题后，不用犹豫，回到过去。</li>
+<li><strong>丰富的命令行工具</strong>：Git提供了一个功能丰富的命令行工具，允许开发者执行各种复杂的操作，同时也有各种图形用户界面工具可用。</li>
+<li><strong>强大的合并能力</strong>：Git具有强大的自动合并能力，可以自动合并不同分支的改动，并在必要时提示用户手动解决冲突。</li>
+</ol>
+<p>现在可以说是，各个公司和组织都在使用Git来管理他们的代码和项目。而即使是这样，我身边很多同学却还不会使用git。<del>这是一件匪夷所思的事情。</del></p>
+<p>于是这篇文章应运而生，旨在介绍git<em><strong>那些你不曾了解过的东西</strong></em>。</p>
+<p><del>大佬勿阅</del></p>
+<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><blockquote>
+<p>这部分在网上有很多教程，我本不想赘述，但是避免有完全不懂的人想要学习Git，故在这里简述一下。</p>
+</blockquote>
+<ol>
+<li>登录Git官网下载页面：<a target="_blank" rel="noopener" href="https://git-scm.com/download">Git</a></li>
+<li>选择自己的操作系统，下载对应的安装包</li>
+<li>得到类似于这样的文件：Git-2.44.0-64-bit.exe</li>
+<li>双击安装，根据英文提示，按照自己的需要选择安装</li>
+<li>安装完成后，打开命令行工具，输入<code>git --version</code>，如果出现类似这样的信息：<code>git version 2.44.0.windows.1</code>，恭喜你，你做完了第一步</li>
+</ol>
+<p>由于本人使用的是Windows系统，因此我后续都以Windows系统为例。</p>
+<p>你会惊奇的发现：嗯？为什么安装了三个Git软件？</p>
+<p>事实上，这三个Git软件分别是：</p>
+<ol>
+<li>Git Bash</li>
+<li>Git CMD</li>
+<li>Git GUI</li>
+</ol>
+<p>这三个软件是为了不同的用户而设计的，其详情如下：</p>
+<ol>
+<li><strong>Git GUI</strong>：<ul>
+<li><strong>定义</strong>：Git GUI是一个图形用户界面工具，用于执行Git操作，而无需使用命令行。它提供了一个直观的界面，通过图形化的方式展示版本库的状态，让用户能够执行各种Git命令，如提交更改、合并分支等，而不需要记住复杂的命令行语法。</li>
+<li><strong>适用场景</strong>：适合那些偏好图形界面操作、不太熟悉命令行操作或希望通过直观的图形化操作来管理版本控制的用户。</li>
+</ul>
+</li>
+<li><strong>Git Bash</strong>：<ul>
+<li><strong>定义</strong>：Git Bash是一个为Windows用户提供的应用程序，模仿Linux&#x2F;Unix环境下的bash（Bourne Again SHell）环境，允许用户通过命令行界面使用Git功能。Git Bash包含了bash shell和Git命令行工具，使得Windows用户可以在一个类似于Linux的命令行环境中执行Git命令。</li>
+<li><strong>适用场景</strong>：适合那些喜欢使用命令行、需要执行复杂Git操作或偏好Linux风格接口的用户。</li>
+</ul>
+</li>
+<li><strong>Git CMD</strong>：<ul>
+<li><strong>定义</strong>：Git CMD是另一种在Windows上使用Git的方式，它提供了一个命令行界面，允许用户执行Git命令。与Git Bash不同的是，Git CMD运行在Windows的命令提示符（CMD）下，而不是提供一个bash环境。它的目的是让用户能够在熟悉的Windows CMD环境中使用Git命令。</li>
+<li><strong>适用场景</strong>：适合那些习惯于Windows命令提示符、不需要Linux命令支持或仅仅需要执行基本Git操作的用户。</li>
+</ul>
+</li>
+</ol>
+<p>大多数情况下，我们都使用Git Bash来执行Git命令，因为它提供了最接近Linux命令行的体验。</p>
+<h2 id="配置Git"><a href="#配置Git" class="headerlink" title="配置Git"></a>配置Git</h2><p>拿到手里的Git你是否会一脸懵逼，这个软件到底该怎么用？</p>
+<p>别急，我们先来配置一下。</p>
+<p>git的配置每台计算机上只需要配置一次，程序升级时会保留配置信息。你可以在任何时候再次通过运行命令来修改它们。</p>
+<p>Git自带一个<code>git config</code>的工具来帮助设置控制<code>Git</code>外观和行为的配置变量。这些变量存储在三个不同的位置：</p>
+<ol>
+<li><code>/etc/gitconfig</code>文件<ul>
+<li>包含系统上每一个用户及他们仓库的通用配置。如果在执行<code>git config</code>时带上<code>--system</code>选项，那么它就会读写该文件中的配置变量。（由于它是系统配置文件，因此你需要管理员或超级用户权限来修改它。）</li>
+<li>一般在你MSys的根目录下，即安装Git时所选的目标位置。例如：<code>D:\gitHere\Git\etc</code>，你可以在这个目录下找到<code>gitconfig</code>文件。</li>
+</ul>
+</li>
+<li><code>~/.gitconfig</code>或<code>~/.config/git/config</code>文件<ul>
+<li>只针对当前用户。你可以传递<code>--global</code>选项让Git读写此文件，这会对你系统上所有的仓库生效。</li>
+<li>一般在$HOME目录下，大多数情况是<code>C:\Users\$USER</code>，你可以在这个目录下找到<code>.gitconfig</code>文件。</li>
+</ul>
+</li>
+<li>当前使用仓库的Git目录中的<code>config</code>文件（即<code>.git/config</code>）<ul>
+<li>针对该仓库。你可以传递<code>--local</code>选项让Git强制读写此文件，虽然默认情况下用的就是它。（当然，你需要进入某个Git仓库中才能让该选项生效。）</li>
+<li>一般在仓库目录的<code>.git/config</code>文件中。</li>
+</ul>
+</li>
+</ol>
+<p>每一个级别会覆盖上一级别的配置，所以 <code>.git/config</code>的配置变量会覆盖<code>/etc/gitconfig</code>中的配置变量。</p>
+<p>你可以通过以下命令查看所有的配置以及它们所在的文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --list --show-origin</span><br></pre></td></tr></table></figure>
+
+<h3 id="用户信息配置"><a href="#用户信息配置" class="headerlink" title="用户信息配置"></a>用户信息配置</h3><p>安装完Git之后，要做的第一件事就是设置你的用户名和邮件地址。这一点很重要，因为每一个 Git 提交都会使用这些信息，它们会写入到你的每一次提交中，<strong>不可更改</strong>。</p>
+<p>使用如下命令来进行配置：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">&quot;橙子先生&quot;</span></span><br><span class="line">git config --global user.email Jin0714@outlook.com</span><br></pre></td></tr></table></figure>
+
+<p>如你所见，上述配置用了<code>--global</code>选项，这意味着配置到了你当前用户的全局设置中，你无需每次配置。</p>
+<p>同时如果你在某个仓库或项目中你想使用别的用户名或邮箱，你也可以通过不带<code>--global</code>来进行配置。正如我们刚刚说到的，每一个级别会覆盖上一级别的配置。</p>
+<p>如果想更改这些信息，再次调用即可。</p>
+<h3 id="文本编辑器配置"><a href="#文本编辑器配置" class="headerlink" title="文本编辑器配置"></a>文本编辑器配置</h3><p>当Git需要你输入信息时会调用文本编辑器。如果未配置，Git会使用操作系统默认的文本编辑器。</p>
+<p>例如，如果你想使用不同的文本编辑器，例如 Emacs，可以这样做：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.editor emacs</span><br></pre></td></tr></table></figure>
+
+<p>想要使用Vim，可以这样做：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.editor vim</span><br></pre></td></tr></table></figure>
+
+<p>但是，在 Windows 系统上，如果你想要使用别的文本编辑器，那么必须指定可执行文件的完整路径。 它可能随你的编辑器的打包方式而不同。</p>
+<p>例如你想用Notepad++，可以这样做：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.editor <span class="string">&quot;&#x27;C:/Program Files/Notepad++/notepad++.exe&#x27; -multiInst -notabbar -nosession -noPlugin&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里的参数含义：</p>
+<ol>
+<li><code>-multiInst</code>允许每次通过Git调用Notepad++时，都启动一个新的Notepad++实例。这意味着每个Git操作（如提交消息编辑）都会在它自己的Notepad++窗口中打开，而不是在同一个Notepad++实例的新标签中。</li>
+<li><code>-notabbar</code>这会在启动Notepad++时隐藏标签栏。这在你每次都是在新实例中工作时尤其有用，因为不需要标签栏来在单一实例中切换不同的文件。</li>
+<li><code>-nosession</code>这确保Notepad++不会尝试恢复上一次关闭时打开的文件。对于Git编辑操作来说，你通常希望每次启动都是一个干净的环境。</li>
+<li><code>-noPlugin</code>此参数禁用了所有Notepad++插件的加载，这有助于确保编辑器启动快速，并且减少在编辑Git提交信息时可能遇到的干扰或问题。</li>
+</ol>
+<p>但是你是否想过，能否在Git中用VScode来编辑文本呢？</p>
+<p>当然是肯定的。你只需要输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global core.editor <span class="string">&quot;code --wait&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>这里的：<code>--wait</code>表示让Git等待VSCode编辑器关闭后再继续执行。</p>
+<p>注意，要使用这行命令请确保你的Code.exe所在的目录，被加入了你的系统变量里。可以在cmd中输入code检验，如果code打开了VScode，那么说明Code.exe所在的目录配置成功了。</p>
+<h3 id="默认主分支设置"><a href="#默认主分支设置" class="headerlink" title="默认主分支设置"></a>默认主分支设置</h3><p>默认情况下，Git使用<code>master</code>作为主分支的名字。然而，你也可以用其他名字，比如<code>main</code>，或者把<code>master</code>改成<code>trunk</code>。</p>
+<p>使用如下命令来把默认主分支改为main：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global init.defaultBranch main</span><br></pre></td></tr></table></figure>
+
+<p>好啦，做完这一步，你的Git就配置好了。</p>
+<p>很累了吧，去看一集迷宫饭休息一下吧！（私货，安利迷宫饭）</p>
+<p><img src="/images/%E8%BF%B7%E5%AE%AB%E9%A5%AD1.jpg" alt="迷宫饭第一本"></p>
+<h2 id="使用Git"><a href="#使用Git" class="headerlink" title="使用Git"></a>使用Git</h2><p>说了这么多，现在终于可以开始使用git了。</p>
+<h3 id="常用Linux命令"><a href="#常用Linux命令" class="headerlink" title="常用Linux命令"></a>常用Linux命令</h3><p>首先我们需要熟悉一些Linux命令，因为Git的很多操作都需要Linux命令。</p>
+<p>事实上，比起Linux命令，让新手更望而生畏的是命令行操作，我们大多人都是使用图形化界面长大的，但事实上图形化界面(GUI)是对命令行的一种包装，你点击的每个按钮，其实都是执行了一系列命令。所以适应命令行操作是成长为更厉害的程序员的第一步。</p>
+<p>以下是一些常用命令，其他命令需要用到的时候百度之即可。</p>
+<ol>
+<li><code>ls [选项] [目录]</code>：列出目录内容<ol>
+<li>-l：列出长数据串，包含文件的属性与权限等数据</li>
+<li>-a：列出全部的文件，连同隐藏文件（开头为.的文件）一起列出来（常用）</li>
+</ol>
+</li>
+<li><code>cd [目录]</code>: 切换目录<ol>
+<li><code>cd ..</code>：返回上一级目录</li>
+<li><code>cd ~</code>：返回用户主目录</li>
+<li><code>cd -</code>：返回上次所在的目录</li>
+<li><code>cd /</code>：进入根目录</li>
+</ol>
+</li>
+<li><code>pwd</code>：显示当前所在的目录</li>
+<li><code>mkdir [选项] [目录]</code>：创建目录<ol>
+<li>-p：递归创建目录，例如：<code>mkdir -p /home/user/docs/orange</code></li>
+</ol>
+</li>
+<li><code>rmdir [目录]</code>：删除空目录</li>
+<li><code>rm [选项] [文件或目录]</code>：删除文件或目录<ol>
+<li>-r：递归删除目录及其内容</li>
+<li>-f：强制删除不提示</li>
+</ol>
+</li>
+</ol>
+<h3 id="Git使用流程"><a href="#Git使用流程" class="headerlink" title="Git使用流程"></a>Git使用流程</h3><h4 id="创建版本库"><a href="#创建版本库" class="headerlink" title="创建版本库"></a>创建版本库</h4><p>通常有两种获取Git项目仓库的方式：</p>
+<ol>
+<li>将尚未进行版本控制的本地目录转换为Git仓库</li>
+<li>从其它服务器克隆一个已存在的Git仓库</li>
+</ol>
+<p>两种方式都会在你的本地机器上得到一个工作就绪的Git仓库。</p>
+<h5 id="在已存在目录中初始化仓库"><a href="#在已存在目录中初始化仓库" class="headerlink" title="在已存在目录中初始化仓库"></a>在已存在目录中初始化仓库</h5><p>如果你有一个尚未进行版本控制的项目目录，想要用Git来控制它，那么首先需要进入该项目目录中，执行以下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br></pre></td></tr></table></figure>
+
+<p>这个命令会创建一个名为<code>.git</code>的子目录，这个子目录含有你初始化的Git仓库中所有的必须文件，这些文件是Git仓库的骨干。</p>
+<p><del>事实上Git的原理是很有趣的。后续我会推出新的推文来详细讲解Git的原理。</del></p>
+<h5 id="克隆现有的仓库"><a href="#克隆现有的仓库" class="headerlink" title="克隆现有的仓库"></a>克隆现有的仓库</h5><p>如果你想参考一个现有的GitHub仓库，或者想从别人哪里获得一个现有的项目，你会用到如下命令：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> [url]</span><br></pre></td></tr></table></figure>
+
+<p>请注意这里用到的是<code>clone</code>而不是<code>checkout</code>，这体现了Git的特性，Git克隆的是服务器中的几乎所有数据，而不仅仅只是你工作所需的文件。当你执行<code>git clone</code>的时候，默认配置下你会把仓库中每一个文件的每一个版本都<code>clone</code>下来。</p>
+<p>一个简单的例子是：</p>
+<p><code>git clone https://github.com/OOrangeeee/Message_Analysis.git</code></p>
+<p>这会创建一个名为<code>Message_Analysis</code>的目录，其中是这个项目克隆下来的所有内容，即一个Git仓库。</p>
+<p>当然你可以选择为自己<code>clone</code>下来的内容起一个不一样的名字。</p>
+<p>使用如下的命令即可：</p>
+<p><code>git clone https://github.com/OOrangeeee/Message_Analysis.git newName</code></p>
+<p>这样你<code>clone</code>下来的结果是一个名为newName的目录。</p>
+<h4 id="进行配置工作"><a href="#进行配置工作" class="headerlink" title="进行配置工作"></a>进行配置工作</h4><p>在初始化仓库后，你可能需要进行一系列配置，请参考下列方式：</p>
+<ol>
+<li>配置远程仓库<ul>
+<li>如果你是本地初始化的项目，那么如果你的项目需要与远程仓库（如GitHub、GitLab等）协作，需要添加远程仓库的URL。<code>git remote add origin &lt;repository-url&gt;</code></li>
+<li>当然如果没有仓库你需要去GitHub等平台手动创建一个。</li>
+</ul>
+</li>
+<li>设置提交时的换行符<ul>
+<li>在不同的操作系统中，文本文件的换行符可能不同（如Linux使用LF，Windows使用CRLF）。可以通过配置来确保在提交时使用正确的换行符。<code>git config --local core.autocrlf input</code></li>
+<li>也可以考虑用命令来忽略关于换行符的不必要的warning。<code>git config --global core.safecrlf warn</code></li>
+</ul>
+</li>
+<li>设置.gitignore<ul>
+<li>在Git项目中，<code>.gitignore</code>文件扮演着非常重要的角色。它允许你指定Git在提交时应该忽略的文件和目录，通常用于排除那些不应该被版本控制的文件，如编译产物、日志文件、个人配置文件等。</li>
+<li>以下是如何设置和使用<code>.gitignore</code>的详细步骤：<ul>
+<li><p><strong>创建<code>.gitignore</code>文件</strong>：</p>
+<ul>
+<li>在项目的根目录下创建一个名为<code>.gitignore</code>的文件。</li>
+</ul>
+</li>
+<li><p><strong>编写<code>.gitignore</code>规则</strong>：</p>
+<ul>
+<li><p><code>.gitignore</code>文件中的每一条规则都指定了Git应该忽略的文件或目录。规则可以是具体的文件名或目录名，也可以是使用通配符的模式。</p>
+</li>
+<li><p><strong>忽略特定文件</strong>：</p>
+</li>
+<li><p>要忽略特定的文件，如<code>build/</code>目录下的<code>output.log</code>，可以写为：<code>build/output.log</code></p>
+</li>
+<li><p><strong>忽略整个目录</strong>：</p>
+<ul>
+<li>要忽略整个目录及其内容，可以使用斜杠<code>/</code>来结束规则，如：<code>build/</code></li>
+</ul>
+</li>
+<li><p><strong>使用通配符</strong>：</p>
+<ul>
+<li>可以使用<code>*</code>来匹配任意数量的字符，如忽略所有<code>.tmp</code>文件：<code>*.tmp</code></li>
+</ul>
+</li>
+<li><p><strong>忽略所有<code>.log</code>文件</strong>：<code>*.log</code></p>
+</li>
+<li><p><strong>忽略当前目录及其子目录下的所有<code>.o</code>文件</strong>：<code>**/*.o</code></p>
+</li>
+</ul>
+</li>
+<li><p><strong>排除规则</strong>：</p>
+<ul>
+<li>如果你想要对忽略规则进行例外，可以使用<code>!</code>符号来指定不应该被忽略的文件。例如，如果你想要忽略所有<code>.log</code>文件，但是有一个特定的<code>error.log</code>文件需要被跟踪，可以这样写：<code>*.log !error.log</code></li>
+</ul>
+</li>
+<li><p><strong>维护<code>.gitignore</code>文件</strong>：</p>
+<ul>
+<li>随着项目的发展，可能需要更新<code>.gitignore</code>文件以包含新的忽略规则。可以手动编辑<code>.gitignore</code>文件，或者使用文本编辑器进行编辑。</li>
+</ul>
+</li>
+<li><p><strong>使用系统模板</strong>：</p>
+<ul>
+<li><p>Git提供了一些系统级别的<code>.gitignore</code>模板，可以根据你使用的编程语言或框架来选择相应的模板。可以通过以下命令来获取：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin &lt;repository-url&gt;</span><br><span class="line">git fetch origin gitignore</span><br><span class="line">git pull origin gitignore</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>忽略未跟踪的文件</strong>：</p>
+<ul>
+<li><p>如果你已经通过<code>git add .</code>命令错误地添加了不应该被版本控制的文件，可以使用以下命令来取消跟踪：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">rm</span> --cached &lt;file&gt;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>然后，这些文件就可以被<code>.gitignore</code>文件所忽略。</p>
+</li>
+</ul>
+</li>
+<li><p><strong>检查<code>.gitignore</code>文件的效果</strong>：</p>
+<ul>
+<li><p>使用以下命令来查看哪些文件被<code>.gitignore</code>规则所忽略：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git status --ignored</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p><strong>提交<code>.gitignore</code>文件</strong>：</p>
+<ul>
+<li><p>一旦你完成了<code>.gitignore</code>文件的编辑，应该将其添加到版本控制中并提交，这样团队中的其他成员就可以从中受益。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .gitignore</span><br><span class="line">git commit -m <span class="string">&quot;Add .gitignore file&quot;</span></span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="开始工作"><a href="#开始工作" class="headerlink" title="开始工作"></a>开始工作</h4><p>现在就可以开始利用git来对你的工作进行管理了！</p>
+<p>在深入到具体的Git命令之前，让我们先对Git的工作流程有一个大致的了解。Git的工作流程通常包括以下几个步骤：</p>
+<ol>
+<li><strong>初始化仓库</strong>：使用<code>git init</code>命令创建一个新的Git仓库。</li>
+<li><strong>添加文件</strong>：通过<code>git add</code>命令将文件添加到仓库的暂存区。</li>
+<li><strong>提交更改</strong>：使用<code>git commit</code>命令将暂存区的更改提交到仓库。</li>
+<li><strong>分支管理</strong>：利用<code>git branch</code>和<code>git checkout</code>命令创建和管理分支。</li>
+<li><strong>合并分支</strong>：通过<code>git merge</code>命令将一个分支的更改合并到另一个分支。</li>
+<li><strong>解决冲突</strong>：当合并时出现冲突，需要手动解决后再次提交。</li>
+<li><strong>推送到远程仓库</strong>：使用<code>git push</code>命令将本地仓库的更改推送到远程仓库。</li>
+<li><strong>拉取更新</strong>：通过<code>git pull</code>命令从远程仓库拉取最新的更改。</li>
+</ol>
+<h4 id="详细命令解析"><a href="#详细命令解析" class="headerlink" title="详细命令解析"></a>详细命令解析</h4><ol>
+<li><strong>添加文件到暂存区</strong>：<ul>
+<li><code>git add &lt;file&gt;</code>：添加指定文件到暂存区。</li>
+<li><code>git add .</code>：添加当前目录下的所有未跟踪文件到暂存区。</li>
+</ul>
+</li>
+<li><strong>提交更改到仓库</strong>：<ul>
+<li><code>git commit -m &quot;commit message&quot;</code>：创建一个新的提交，包含暂存区的更改，-m选项后跟提交信息。</li>
+</ul>
+</li>
+<li><strong>分支操作</strong>：<ul>
+<li><code>git branch</code>：列出所有分支。</li>
+<li><code>git branch &lt;branch-name&gt;</code>：创建一个新的分支。</li>
+<li><code>git checkout &lt;branch-name&gt;</code>：切换到指定的分支。</li>
+</ul>
+</li>
+<li><strong>合并分支</strong>：<ul>
+<li><code>git merge &lt;branch-name&gt;</code>：将指定分支的更改合并到当前分支。</li>
+</ul>
+</li>
+<li><strong>解决合并冲突</strong>：<ul>
+<li>当合并时出现冲突，Git会提示冲突的文件。需要手动编辑这些文件，解决冲突后，使用<code>git add</code>将更改添加到暂存区，然后<code>git commit</code>提交解决冲突后的文件。</li>
+</ul>
+</li>
+<li><strong>推送到远程仓库</strong>：<ul>
+<li>首先，确保你有一个远程仓库，比如在GitHub上的仓库。</li>
+<li><code>git push -u origin &lt;branch-name&gt;</code>：推送当前分支到远程仓库。</li>
+</ul>
+</li>
+<li><strong>拉取远程更新</strong>：<ul>
+<li><code>git pull</code>：从远程仓库拉取最新更改并自动合并到当前分支。</li>
+</ul>
+</li>
+</ol>
+<h4 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h4><ol>
+<li><strong>标签管理</strong>：<ul>
+<li><code>git tag</code>：列出所有标签。</li>
+<li><code>git tag &lt;tag-name&gt;</code>：为当前提交创建一个新的标签。</li>
+<li><code>git tag -a &lt;tag-name&gt; -m &quot;tag message&quot;</code>：创建带有注解的标签。</li>
+</ul>
+</li>
+<li><strong>查看仓库状态</strong>：<ul>
+<li><code>git status</code>：查看当前仓库的状态，包括哪些文件被修改、哪些文件在暂存区等。</li>
+</ul>
+</li>
+<li><strong>查看提交历史</strong>：<ul>
+<li><code>git log</code>：显示当前分支的提交历史。</li>
+<li><code>git log --oneline</code>：简化显示提交历史。</li>
+</ul>
+</li>
+<li><strong>撤销操作</strong>：<ul>
+<li><code>git reset &lt;file&gt;</code>：从暂存区移除文件，但不改变文件内容。</li>
+<li><code>git reset --hard</code>：重置当前HEAD到指定状态，所有未提交的更改都会丢失。</li>
+</ul>
+</li>
+<li><strong>远程仓库操作</strong>：<ul>
+<li><code>git fetch</code>：从远程仓库获取最新更改，但不自动合并。</li>
+<li><code>git merge origin/&lt;branch-name&gt;</code>：将远程分支的更改合并到当前分支。</li>
+</ul>
+</li>
+<li><strong>重写历史</strong>：<ul>
+<li><code>git rebase</code>：重新应用一系列提交到另一个基础提交上，常用于整理分支历史。</li>
+</ul>
+</li>
+<li><strong>详细学习git的高级操作</strong><ul>
+<li>这里强推<a target="_blank" rel="noopener" href="https://learngitbranching.js.org/?locale=zh_CN">动态学习git branch</a></li>
+<li>这个网站能帮你了解大部分git的高级操作！！</li>
+<li>这个网站做的太好了，于是本文不再赘述。</li>
+</ul>
+</li>
+</ol>
+<h4 id="安全性与最佳实践"><a href="#安全性与最佳实践" class="headerlink" title="安全性与最佳实践"></a>安全性与最佳实践</h4><ul>
+<li><strong>定期备份</strong>：由于Git是分布式版本控制，每个开发者的本地都是一个完整的仓库，定期备份本地仓库是非常重要的。</li>
+<li><strong>使用分支</strong>：分支是Git的强大特性，合理使用分支可以使得开发流程更加清晰。</li>
+<li><strong>代码审查</strong>：在合并分支前进行代码审查，确保代码质量。</li>
+<li><strong>避免大的合并</strong>：尽量保持合并的提交记录清晰，避免将大量更改一次性合并到主分支。</li>
+</ul>
+
       
     </div>
 
@@ -542,13 +901,13 @@
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -594,7 +953,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共350字</span>
+  <span class="post-count">博客全站共5.6k字</span>
 </div>
 
 
