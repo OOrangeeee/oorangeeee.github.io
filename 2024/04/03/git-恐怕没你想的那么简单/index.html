@@ -27,15 +27,15 @@
 <meta property="og:site_name" content="橙子先生的世界">
 <meta property="og:description" content="背景众所周知，Git是一个开源的分布式版本控制系统，它允许多个开发者在各自的本地环境中工作，同时保持与其他开发者的协作和同步。其设计目的是为了提高大型项目的效率和速度。这里是Git的一些关键特点和原理：  分布式架构：与集中式版本控制系统不同，Git在每个开发者的机器上都创建一个完整的仓库副本，包括代码的完整历史记录。这意味着即使远程服务器不可用，每个开发者也可以在本地继续工作，并且拥有完整的项目">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/images/miGongFan1.png">
+<meta property="og:image" content="http://example.com/images/%E8%BF%B7%E5%AE%AB%E9%A5%AD1.jpg">
 <meta property="article:published_time" content="2024-04-03T06:16:12.000Z">
-<meta property="article:modified_time" content="2024-04-28T08:00:50.854Z">
+<meta property="article:modified_time" content="2024-05-04T13:29:16.381Z">
 <meta property="article:author" content="橙子先生——晋晨曦">
 <meta property="article:tag" content="编程">
 <meta property="article:tag" content="技术">
 <meta property="article:tag" content="团队合作">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/images/miGongFan1.png">
+<meta name="twitter:image" content="http://example.com/images/%E8%BF%B7%E5%AE%AB%E9%A5%AD1.jpg">
 
 <link rel="canonical" href="http://example.com/2024/04/03/git-%E6%81%90%E6%80%95%E6%B2%A1%E4%BD%A0%E6%83%B3%E7%9A%84%E9%82%A3%E4%B9%88%E7%AE%80%E5%8D%95/">
 
@@ -199,7 +199,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-28 16:00:50" itemprop="dateModified" datetime="2024-04-28T16:00:50+08:00">2024-04-28</time>
+                <time title="修改时间：2024-05-04 21:29:16" itemprop="dateModified" datetime="2024-05-04T21:29:16+08:00">2024-05-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -345,7 +345,7 @@
 
 <p>好啦，做完这一步，你的Git就配置好了。</p>
 <p>很累了吧，去看一集迷宫饭休息一下吧！（私货，安利迷宫饭）</p>
-<p><img src="/images/miGongFan1.png" alt="miGongFan1"></p>
+<p><img src="/images/%E8%BF%B7%E5%AE%AB%E9%A5%AD1.jpg" alt="迷宫饭第一本"></p>
 <h2 id="使用Git"><a href="#使用Git" class="headerlink" title="使用Git"></a>使用Git</h2><p>说了这么多，现在终于可以开始使用git了。</p>
 <h3 id="常用Linux命令"><a href="#常用Linux命令" class="headerlink" title="常用Linux命令"></a>常用Linux命令</h3><p>首先我们需要熟悉一些Linux命令，因为Git的很多操作都需要Linux命令。</p>
 <p>事实上，比起Linux命令，让新手更望而生畏的是命令行操作，我们大多人都是使用图形化界面长大的，但事实上图形化界面(GUI)是对命令行的一种包装，你点击的每个按钮，其实都是执行了一系列命令。所以适应命令行操作是成长为更厉害的程序员的第一步。</p>
@@ -489,7 +489,7 @@
 <li><strong>初始化仓库</strong>：使用<code>git init</code>命令创建一个新的Git仓库。</li>
 <li><strong>添加文件</strong>：通过<code>git add</code>命令将文件添加到仓库的暂存区。</li>
 <li><strong>提交更改</strong>：使用<code>git commit</code>命令将暂存区的更改提交到仓库。</li>
-<li><strong>分支管理</strong>：利用<code>git branch</code>和<code>git checkout</code>命令创建和管理分支。</li>
+<li><strong>分支管理</strong>：利用<code>git branch</code>和<code>git switch</code>命令创建和管理分支。</li>
 <li><strong>合并分支</strong>：通过<code>git merge</code>命令将一个分支的更改合并到另一个分支。</li>
 <li><strong>解决冲突</strong>：当合并时出现冲突，需要手动解决后再次提交。</li>
 <li><strong>推送到远程仓库</strong>：使用<code>git push</code>命令将本地仓库的更改推送到远程仓库。</li>
@@ -508,7 +508,7 @@
 <li><strong>分支操作</strong>：<ul>
 <li><code>git branch</code>：列出所有分支。</li>
 <li><code>git branch &lt;branch-name&gt;</code>：创建一个新的分支。</li>
-<li><code>git checkout &lt;branch-name&gt;</code>：切换到指定的分支。</li>
+<li><code>git switch &lt;branch-name&gt;</code>：切换到指定的分支。</li>
 </ul>
 </li>
 <li><strong>合并分支</strong>：<ul>
@@ -572,6 +572,110 @@
 <li><strong>代码审查</strong>：在合并分支前进行代码审查，确保代码质量。</li>
 <li><strong>避免大的合并</strong>：尽量保持合并的提交记录清晰，避免将大量更改一次性合并到主分支。</li>
 </ul>
+<h4 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h4><p>恭喜你，在学完了上述所有内容以及实现了<a target="_blank" rel="noopener" href="https://learngitbranching.js.org/?locale=zh_CN">动态学习git branch</a>里所有的关卡后，你已经可以称自己为一个git大师了！</p>
+<p>现在更重要的是一些git使用规范。</p>
+<p>git本身没有官方指定的规范，但在git发展的这么多年里，在git社区中产生了许多优秀规范。当然如果你的团队有自己的规范要求，那么请以你团队的要求为准。</p>
+<h5 id="分支命名规范"><a href="#分支命名规范" class="headerlink" title="分支命名规范"></a>分支命名规范</h5><p>在Git的使用中，分支命名规范是团队协作中非常重要的一部分，它有助于团队成员理解分支的用途和状态。以下是两种常见的分支命名规范，以及它们的应用场景和好处：</p>
+<h6 id="分支命名规范一：依据用处分类分支"><a href="#分支命名规范一：依据用处分类分支" class="headerlink" title="分支命名规范一：依据用处分类分支"></a>分支命名规范一：依据用处分类分支</h6><ol>
+<li>功能开发分支（dev&#x2F;*）<ul>
+<li><strong>命名规则</strong>：<code>dev/功能名</code></li>
+<li><strong>用途</strong>：用于开发新的功能或模块。</li>
+<li><strong>示例</strong>：<code>dev/login</code>、<code>dev/user-profile</code></li>
+</ul>
+</li>
+<li>迭代新功能分支（fea&#x2F;*）<ul>
+<li><strong>命名规则</strong>：<code>fea/功能名</code></li>
+<li><strong>用途</strong>：用于在功能开发完成后，进行新功能的迭代开发。</li>
+<li><strong>示例</strong>：<code>fea/dashboard-enhancement</code></li>
+</ul>
+</li>
+<li>文档分支（docs&#x2F;*）<ul>
+<li><strong>命名规则</strong>：<code>docs/文档名</code></li>
+<li><strong>用途</strong>：用于存放项目文档，如API文档、部署文档等。</li>
+<li><strong>示例</strong>：<code>docs/api-reference</code></li>
+</ul>
+</li>
+<li>Bug修复分支（fix&#x2F;*）<ul>
+<li><strong>命名规则</strong>：<code>fix/bug编号或描述</code></li>
+<li><strong>用途</strong>：用于修复已知的bug。</li>
+<li><strong>示例</strong>：<code>fix/issue-123</code>、<code>fix/login-bug</code></li>
+</ul>
+</li>
+<li>发布分支（release&#x2F;*）<ul>
+<li><strong>命名规则</strong>：<code>release/版本号</code></li>
+<li><strong>用途</strong>：用于准备发布到生产环境的代码。</li>
+<li><strong>示例</strong>：<code>release/v1.0.0</code></li>
+</ul>
+</li>
+<li>热修复分支（hotfix&#x2F;*）<ul>
+<li><strong>命名规则</strong>：<code>hotfix/紧急问题描述</code></li>
+<li><strong>用途</strong>：用于紧急修复生产环境中的问题。</li>
+<li><strong>示例</strong>：<code>hotfix/critical-login-issue</code></li>
+</ul>
+</li>
+</ol>
+<h6 id="分支命名规范二：基于Issue的分支"><a href="#分支命名规范二：基于Issue的分支" class="headerlink" title="分支命名规范二：基于Issue的分支"></a>分支命名规范二：基于Issue的分支</h6><ol>
+<li>Issue分支<ul>
+<li><strong>命名规则</strong>：<code>issue/issue编号</code></li>
+<li><strong>用途</strong>：为每个GitHub上的Issue创建一个单独的分支，确保每个任务或问题都有对应的开发分支。</li>
+<li><strong>示例</strong>：<code>issue/123</code>、<code>issue/456</code></li>
+<li><strong>重点</strong>: 如果用这种方式命名请尽可能详细认真的撰写issues。</li>
+</ul>
+</li>
+</ol>
+<h6 id="规范的好处"><a href="#规范的好处" class="headerlink" title="规范的好处"></a>规范的好处</h6><ul>
+<li><strong>清晰性</strong>：规范的分支命名有助于团队成员快速理解每个分支的目的和状态。</li>
+<li><strong>可追踪性</strong>：基于Issue的分支命名有助于追踪每个任务或问题的开发进度。</li>
+<li><strong>协作性</strong>：明确的分支命名规范促进了团队成员间的协作，减少了沟通成本。</li>
+<li><strong>维护性</strong>：随着项目的发展，规范的分支管理有助于维护项目的整洁和可维护性。</li>
+</ul>
+<p>在实施这些规范时，重要的是确保团队成员都理解并遵守这些规则，以保持项目的一致性和效率。</p>
+<h5 id="Commit-提交规范"><a href="#Commit-提交规范" class="headerlink" title="Commit 提交规范"></a>Commit 提交规范</h5><p>Commit 提交规范有很多种，这里我们介绍Angular规范。</p>
+<p>Angular 团队提出了一种广泛使用的 commit 提交规范，这种规范有助于自动化生成更改日志，并为团队成员提供清晰的提交信息。以下是 Angular 规范的主要内容和应用方法：</p>
+<h6 id="1-提交信息格式"><a href="#1-提交信息格式" class="headerlink" title="1. 提交信息格式"></a>1. 提交信息格式</h6><p>每个 commit 信息应该包括一个<strong>类型</strong>、一个<strong>标题</strong>（可选<strong>范围</strong>）和一个<strong>描述</strong>（如果需要）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;类型&gt;(&lt;范围&gt;): &lt;标题&gt;</span><br><span class="line">&lt;空行&gt;</span><br><span class="line">&lt;描述&gt;</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-类型"><a href="#2-类型" class="headerlink" title="2. 类型"></a>2. 类型</h6><p>以下是 Angular 规范中常用的 commit 类型：</p>
+<ul>
+<li><strong>feat</strong>：新功能(feature)</li>
+<li><strong>fix</strong>：修复bug</li>
+<li><strong>docs</strong>：文档更改</li>
+<li><strong>style</strong>：代码格式（不影响功能，例如空格、分号等）</li>
+<li><strong>refactor</strong>：代码重构（不包括bug修复）</li>
+<li><strong>perf</strong>：性能优化</li>
+<li><strong>test</strong>：添加或修改测试代码</li>
+<li><strong>build</strong>：构建过程或辅助工具的更改</li>
+<li><strong>ci</strong>：持续集成过程的更改</li>
+<li><strong>chore</strong>：不属于以上类型的其他更改</li>
+<li><strong>revert</strong>：撤销之前的commit</li>
+</ul>
+<h6 id="3-范围"><a href="#3-范围" class="headerlink" title="3. 范围"></a>3. 范围</h6><p>范围是可选的，它描述了改动影响的模块或组件，例如 <code>$location</code>, <code>$browser</code>, <code>$compile</code> 等。</p>
+<h6 id="4-标题"><a href="#4-标题" class="headerlink" title="4. 标题"></a>4. 标题</h6><p>标题应该简短明了（50个字符以内），描述性的，并且使用现在时，例如 “Add login feature”。</p>
+<h6 id="5-描述"><a href="#5-描述" class="headerlink" title="5. 描述"></a>5. 描述</h6><p>描述是可选的，如果标题没有足够的信息，描述可以提供更多的细节。描述应该详细说明为什么做出这些改变以及它们是如何工作的。</p>
+<h6 id="6-正文"><a href="#6-正文" class="headerlink" title="6. 正文"></a>6. 正文</h6><p>如果提交包含正文，它应该提供更详细的解释，为什么这个改变是必须的，以及它解决了什么问题。</p>
+<h6 id="7-断行"><a href="#7-断行" class="headerlink" title="7. 断行"></a>7. 断行</h6><p>确保提交信息的任何一行不超过72个字符。这是为了提高可读性。</p>
+<h6 id="8-Revert"><a href="#8-Revert" class="headerlink" title="8. Revert"></a>8. Revert</h6><p>如果你的 commit 是一个 revert 操作，应该以 “revert: “ 开始，后面跟上被撤销的 commit 的标题。</p>
+<h6 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">feat(checkout): Add ability to checkout items</span><br><span class="line"></span><br><span class="line">The new checkout ability allows users to select items and pay for them.</span><br></pre></td></tr></table></figure>
+
+<h6 id="使用-Angular-规范的好处"><a href="#使用-Angular-规范的好处" class="headerlink" title="使用 Angular 规范的好处"></a>使用 Angular 规范的好处</h6><ul>
+<li><strong>清晰性</strong>：规范的提交信息格式让其他开发者能够快速理解每个提交的内容。</li>
+<li><strong>自动化</strong>：许多工具可以利用这种格式自动生成发布日志。</li>
+<li><strong>一致性</strong>：团队成员遵循相同的提交格式，有助于维护项目的整洁。</li>
+<li><strong>问题追踪</strong>：通过类型和范围，可以快速追踪特定功能或模块的更改历史。</li>
+</ul>
+<h6 id="实施-Angular-规范"><a href="#实施-Angular-规范" class="headerlink" title="实施 Angular 规范"></a>实施 Angular 规范</h6><p>可以使用一些工具来快速上手：</p>
+<p>Commitizen是一个撰写合格 Commit message 的工具。安装命令如下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g commitizen</span><br></pre></td></tr></table></figure>
+
+<p>对于每一个项目你都需要运行一下命令来使用它：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">commitizen init cz-conventional-changelog --save --save-exact</span><br></pre></td></tr></table></figure>
+
+<p>这样就好啦，以后用到<code>git commit</code>的地方就用<code>git cz</code>吧！</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>Git是一个很容易上手的工具，但是想要精通其使用或许需要花一些时间，不过这些都是值得的。一旦你掌握了Git，也就掌握了大部分团队合作开发的方法。</p>
+<p>Have a nice day.</p>
+<h2 id="参考目录"><a href="#参考目录" class="headerlink" title="参考目录"></a>参考目录</h2><p><a target="_blank" rel="noopener" href="https://ruanyifeng.com/blog/2016/01/commit_message_change_log.html">Commit message 和 Change log 编写指南</a></p>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/">Git 指南</a></p>
+<p><a target="_blank" rel="noopener" href="https://learngitbranching.js.org/?locale=zh_CN">动态学习git branch</a></p>
 
     </div>
 
@@ -654,7 +758,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Git"><span class="nav-number">2.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEGit"><span class="nav-number">3.</span> <span class="nav-text">配置Git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF%E9%85%8D%E7%BD%AE"><span class="nav-number">3.1.</span> <span class="nav-text">用户信息配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="nav-number">3.2.</span> <span class="nav-text">文本编辑器配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E4%B8%BB%E5%88%86%E6%94%AF%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.3.</span> <span class="nav-text">默认主分支设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Git"><span class="nav-number">4.</span> <span class="nav-text">使用Git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4"><span class="nav-number">4.1.</span> <span class="nav-text">常用Linux命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">4.2.</span> <span class="nav-text">Git使用流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93"><span class="nav-number">4.2.1.</span> <span class="nav-text">创建版本库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9C%A8%E5%B7%B2%E5%AD%98%E5%9C%A8%E7%9B%AE%E5%BD%95%E4%B8%AD%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">在已存在目录中初始化仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%8B%E9%9A%86%E7%8E%B0%E6%9C%89%E7%9A%84%E4%BB%93%E5%BA%93"><span class="nav-number">4.2.1.2.</span> <span class="nav-text">克隆现有的仓库</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AE%E5%B7%A5%E4%BD%9C"><span class="nav-number">4.2.2.</span> <span class="nav-text">进行配置工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E5%B7%A5%E4%BD%9C"><span class="nav-number">4.2.3.</span> <span class="nav-text">开始工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E5%91%BD%E4%BB%A4%E8%A7%A3%E6%9E%90"><span class="nav-number">4.2.4.</span> <span class="nav-text">详细命令解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7"><span class="nav-number">4.2.5.</span> <span class="nav-text">高级特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E6%80%A7%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-number">4.2.6.</span> <span class="nav-text">安全性与最佳实践</span></a></li></ol></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%83%8C%E6%99%AF"><span class="nav-number">1.</span> <span class="nav-text">背景</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%89%E8%A3%85Git"><span class="nav-number">2.</span> <span class="nav-text">安装Git</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E9%85%8D%E7%BD%AEGit"><span class="nav-number">3.</span> <span class="nav-text">配置Git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF%E9%85%8D%E7%BD%AE"><span class="nav-number">3.1.</span> <span class="nav-text">用户信息配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%96%87%E6%9C%AC%E7%BC%96%E8%BE%91%E5%99%A8%E9%85%8D%E7%BD%AE"><span class="nav-number">3.2.</span> <span class="nav-text">文本编辑器配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%BB%98%E8%AE%A4%E4%B8%BB%E5%88%86%E6%94%AF%E8%AE%BE%E7%BD%AE"><span class="nav-number">3.3.</span> <span class="nav-text">默认主分支设置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8Git"><span class="nav-number">4.</span> <span class="nav-text">使用Git</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B8%B8%E7%94%A8Linux%E5%91%BD%E4%BB%A4"><span class="nav-number">4.1.</span> <span class="nav-text">常用Linux命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Git%E4%BD%BF%E7%94%A8%E6%B5%81%E7%A8%8B"><span class="nav-number">4.2.</span> <span class="nav-text">Git使用流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93"><span class="nav-number">4.2.1.</span> <span class="nav-text">创建版本库</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%9C%A8%E5%B7%B2%E5%AD%98%E5%9C%A8%E7%9B%AE%E5%BD%95%E4%B8%AD%E5%88%9D%E5%A7%8B%E5%8C%96%E4%BB%93%E5%BA%93"><span class="nav-number">4.2.1.1.</span> <span class="nav-text">在已存在目录中初始化仓库</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%85%8B%E9%9A%86%E7%8E%B0%E6%9C%89%E7%9A%84%E4%BB%93%E5%BA%93"><span class="nav-number">4.2.1.2.</span> <span class="nav-text">克隆现有的仓库</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%BF%9B%E8%A1%8C%E9%85%8D%E7%BD%AE%E5%B7%A5%E4%BD%9C"><span class="nav-number">4.2.2.</span> <span class="nav-text">进行配置工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%BC%80%E5%A7%8B%E5%B7%A5%E4%BD%9C"><span class="nav-number">4.2.3.</span> <span class="nav-text">开始工作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%AF%A6%E7%BB%86%E5%91%BD%E4%BB%A4%E8%A7%A3%E6%9E%90"><span class="nav-number">4.2.4.</span> <span class="nav-text">详细命令解析</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%AB%98%E7%BA%A7%E7%89%B9%E6%80%A7"><span class="nav-number">4.2.5.</span> <span class="nav-text">高级特性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%AE%89%E5%85%A8%E6%80%A7%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-number">4.2.6.</span> <span class="nav-text">安全性与最佳实践</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%84%E8%8C%83"><span class="nav-number">4.2.7.</span> <span class="nav-text">规范</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83"><span class="nav-number">4.2.7.1.</span> <span class="nav-text">分支命名规范</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83%E4%B8%80%EF%BC%9A%E4%BE%9D%E6%8D%AE%E7%94%A8%E5%A4%84%E5%88%86%E7%B1%BB%E5%88%86%E6%94%AF"><span class="nav-number">4.2.7.1.1.</span> <span class="nav-text">分支命名规范一：依据用处分类分支</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%88%86%E6%94%AF%E5%91%BD%E5%90%8D%E8%A7%84%E8%8C%83%E4%BA%8C%EF%BC%9A%E5%9F%BA%E4%BA%8EIssue%E7%9A%84%E5%88%86%E6%94%AF"><span class="nav-number">4.2.7.1.2.</span> <span class="nav-text">分支命名规范二：基于Issue的分支</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E8%A7%84%E8%8C%83%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-number">4.2.7.1.3.</span> <span class="nav-text">规范的好处</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Commit-%E6%8F%90%E4%BA%A4%E8%A7%84%E8%8C%83"><span class="nav-number">4.2.7.2.</span> <span class="nav-text">Commit 提交规范</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-%E6%8F%90%E4%BA%A4%E4%BF%A1%E6%81%AF%E6%A0%BC%E5%BC%8F"><span class="nav-number">4.2.7.2.1.</span> <span class="nav-text">1. 提交信息格式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.2.7.2.2.</span> <span class="nav-text">2. 类型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-%E8%8C%83%E5%9B%B4"><span class="nav-number">4.2.7.2.3.</span> <span class="nav-text">3. 范围</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-%E6%A0%87%E9%A2%98"><span class="nav-number">4.2.7.2.4.</span> <span class="nav-text">4. 标题</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-%E6%8F%8F%E8%BF%B0"><span class="nav-number">4.2.7.2.5.</span> <span class="nav-text">5. 描述</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#6-%E6%AD%A3%E6%96%87"><span class="nav-number">4.2.7.2.6.</span> <span class="nav-text">6. 正文</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#7-%E6%96%AD%E8%A1%8C"><span class="nav-number">4.2.7.2.7.</span> <span class="nav-text">7. 断行</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#8-Revert"><span class="nav-number">4.2.7.2.8.</span> <span class="nav-text">8. Revert</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E7%A4%BA%E4%BE%8B"><span class="nav-number">4.2.7.2.9.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-Angular-%E8%A7%84%E8%8C%83%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="nav-number">4.2.7.2.10.</span> <span class="nav-text">使用 Angular 规范的好处</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#%E5%AE%9E%E6%96%BD-Angular-%E8%A7%84%E8%8C%83"><span class="nav-number">4.2.7.2.11.</span> <span class="nav-text">实施 Angular 规范</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%86%99%E5%9C%A8%E6%9C%80%E5%90%8E"><span class="nav-number">5.</span> <span class="nav-text">写在最后</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E7%9B%AE%E5%BD%95"><span class="nav-number">6.</span> <span class="nav-text">参考目录</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -729,7 +833,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共5.6k字</span>
+  <span class="post-count">博客全站共7.1k字</span>
 </div>
 
 

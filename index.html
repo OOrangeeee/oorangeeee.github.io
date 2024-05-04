@@ -277,7 +277,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2024-04-28 16:00:50" itemprop="dateModified" datetime="2024-04-28T16:00:50+08:00">2024-04-28</time>
+                <time title="修改时间：2024-05-04 21:29:16" itemprop="dateModified" datetime="2024-05-04T21:29:16+08:00">2024-05-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -416,7 +416,7 @@
 
 <p>好啦，做完这一步，你的Git就配置好了。</p>
 <p>很累了吧，去看一集迷宫饭休息一下吧！（私货，安利迷宫饭）</p>
-<p><img src="/images/miGongFan1.png" alt="miGongFan1"></p>
+<p><img src="/images/%E8%BF%B7%E5%AE%AB%E9%A5%AD1.jpg" alt="迷宫饭第一本"></p>
 <h2 id="使用Git"><a href="#使用Git" class="headerlink" title="使用Git"></a>使用Git</h2><p>说了这么多，现在终于可以开始使用git了。</p>
 <h3 id="常用Linux命令"><a href="#常用Linux命令" class="headerlink" title="常用Linux命令"></a>常用Linux命令</h3><p>首先我们需要熟悉一些Linux命令，因为Git的很多操作都需要Linux命令。</p>
 <p>事实上，比起Linux命令，让新手更望而生畏的是命令行操作，我们大多人都是使用图形化界面长大的，但事实上图形化界面(GUI)是对命令行的一种包装，你点击的每个按钮，其实都是执行了一系列命令。所以适应命令行操作是成长为更厉害的程序员的第一步。</p>
@@ -560,7 +560,7 @@
 <li><strong>初始化仓库</strong>：使用<code>git init</code>命令创建一个新的Git仓库。</li>
 <li><strong>添加文件</strong>：通过<code>git add</code>命令将文件添加到仓库的暂存区。</li>
 <li><strong>提交更改</strong>：使用<code>git commit</code>命令将暂存区的更改提交到仓库。</li>
-<li><strong>分支管理</strong>：利用<code>git branch</code>和<code>git checkout</code>命令创建和管理分支。</li>
+<li><strong>分支管理</strong>：利用<code>git branch</code>和<code>git switch</code>命令创建和管理分支。</li>
 <li><strong>合并分支</strong>：通过<code>git merge</code>命令将一个分支的更改合并到另一个分支。</li>
 <li><strong>解决冲突</strong>：当合并时出现冲突，需要手动解决后再次提交。</li>
 <li><strong>推送到远程仓库</strong>：使用<code>git push</code>命令将本地仓库的更改推送到远程仓库。</li>
@@ -579,7 +579,7 @@
 <li><strong>分支操作</strong>：<ul>
 <li><code>git branch</code>：列出所有分支。</li>
 <li><code>git branch &lt;branch-name&gt;</code>：创建一个新的分支。</li>
-<li><code>git checkout &lt;branch-name&gt;</code>：切换到指定的分支。</li>
+<li><code>git switch &lt;branch-name&gt;</code>：切换到指定的分支。</li>
 </ul>
 </li>
 <li><strong>合并分支</strong>：<ul>
@@ -643,6 +643,110 @@
 <li><strong>代码审查</strong>：在合并分支前进行代码审查，确保代码质量。</li>
 <li><strong>避免大的合并</strong>：尽量保持合并的提交记录清晰，避免将大量更改一次性合并到主分支。</li>
 </ul>
+<h4 id="规范"><a href="#规范" class="headerlink" title="规范"></a>规范</h4><p>恭喜你，在学完了上述所有内容以及实现了<a target="_blank" rel="noopener" href="https://learngitbranching.js.org/?locale=zh_CN">动态学习git branch</a>里所有的关卡后，你已经可以称自己为一个git大师了！</p>
+<p>现在更重要的是一些git使用规范。</p>
+<p>git本身没有官方指定的规范，但在git发展的这么多年里，在git社区中产生了许多优秀规范。当然如果你的团队有自己的规范要求，那么请以你团队的要求为准。</p>
+<h5 id="分支命名规范"><a href="#分支命名规范" class="headerlink" title="分支命名规范"></a>分支命名规范</h5><p>在Git的使用中，分支命名规范是团队协作中非常重要的一部分，它有助于团队成员理解分支的用途和状态。以下是两种常见的分支命名规范，以及它们的应用场景和好处：</p>
+<h6 id="分支命名规范一：依据用处分类分支"><a href="#分支命名规范一：依据用处分类分支" class="headerlink" title="分支命名规范一：依据用处分类分支"></a>分支命名规范一：依据用处分类分支</h6><ol>
+<li>功能开发分支（dev&#x2F;*）<ul>
+<li><strong>命名规则</strong>：<code>dev/功能名</code></li>
+<li><strong>用途</strong>：用于开发新的功能或模块。</li>
+<li><strong>示例</strong>：<code>dev/login</code>、<code>dev/user-profile</code></li>
+</ul>
+</li>
+<li>迭代新功能分支（fea&#x2F;*）<ul>
+<li><strong>命名规则</strong>：<code>fea/功能名</code></li>
+<li><strong>用途</strong>：用于在功能开发完成后，进行新功能的迭代开发。</li>
+<li><strong>示例</strong>：<code>fea/dashboard-enhancement</code></li>
+</ul>
+</li>
+<li>文档分支（docs&#x2F;*）<ul>
+<li><strong>命名规则</strong>：<code>docs/文档名</code></li>
+<li><strong>用途</strong>：用于存放项目文档，如API文档、部署文档等。</li>
+<li><strong>示例</strong>：<code>docs/api-reference</code></li>
+</ul>
+</li>
+<li>Bug修复分支（fix&#x2F;*）<ul>
+<li><strong>命名规则</strong>：<code>fix/bug编号或描述</code></li>
+<li><strong>用途</strong>：用于修复已知的bug。</li>
+<li><strong>示例</strong>：<code>fix/issue-123</code>、<code>fix/login-bug</code></li>
+</ul>
+</li>
+<li>发布分支（release&#x2F;*）<ul>
+<li><strong>命名规则</strong>：<code>release/版本号</code></li>
+<li><strong>用途</strong>：用于准备发布到生产环境的代码。</li>
+<li><strong>示例</strong>：<code>release/v1.0.0</code></li>
+</ul>
+</li>
+<li>热修复分支（hotfix&#x2F;*）<ul>
+<li><strong>命名规则</strong>：<code>hotfix/紧急问题描述</code></li>
+<li><strong>用途</strong>：用于紧急修复生产环境中的问题。</li>
+<li><strong>示例</strong>：<code>hotfix/critical-login-issue</code></li>
+</ul>
+</li>
+</ol>
+<h6 id="分支命名规范二：基于Issue的分支"><a href="#分支命名规范二：基于Issue的分支" class="headerlink" title="分支命名规范二：基于Issue的分支"></a>分支命名规范二：基于Issue的分支</h6><ol>
+<li>Issue分支<ul>
+<li><strong>命名规则</strong>：<code>issue/issue编号</code></li>
+<li><strong>用途</strong>：为每个GitHub上的Issue创建一个单独的分支，确保每个任务或问题都有对应的开发分支。</li>
+<li><strong>示例</strong>：<code>issue/123</code>、<code>issue/456</code></li>
+<li><strong>重点</strong>: 如果用这种方式命名请尽可能详细认真的撰写issues。</li>
+</ul>
+</li>
+</ol>
+<h6 id="规范的好处"><a href="#规范的好处" class="headerlink" title="规范的好处"></a>规范的好处</h6><ul>
+<li><strong>清晰性</strong>：规范的分支命名有助于团队成员快速理解每个分支的目的和状态。</li>
+<li><strong>可追踪性</strong>：基于Issue的分支命名有助于追踪每个任务或问题的开发进度。</li>
+<li><strong>协作性</strong>：明确的分支命名规范促进了团队成员间的协作，减少了沟通成本。</li>
+<li><strong>维护性</strong>：随着项目的发展，规范的分支管理有助于维护项目的整洁和可维护性。</li>
+</ul>
+<p>在实施这些规范时，重要的是确保团队成员都理解并遵守这些规则，以保持项目的一致性和效率。</p>
+<h5 id="Commit-提交规范"><a href="#Commit-提交规范" class="headerlink" title="Commit 提交规范"></a>Commit 提交规范</h5><p>Commit 提交规范有很多种，这里我们介绍Angular规范。</p>
+<p>Angular 团队提出了一种广泛使用的 commit 提交规范，这种规范有助于自动化生成更改日志，并为团队成员提供清晰的提交信息。以下是 Angular 规范的主要内容和应用方法：</p>
+<h6 id="1-提交信息格式"><a href="#1-提交信息格式" class="headerlink" title="1. 提交信息格式"></a>1. 提交信息格式</h6><p>每个 commit 信息应该包括一个<strong>类型</strong>、一个<strong>标题</strong>（可选<strong>范围</strong>）和一个<strong>描述</strong>（如果需要）：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;类型&gt;(&lt;范围&gt;): &lt;标题&gt;</span><br><span class="line">&lt;空行&gt;</span><br><span class="line">&lt;描述&gt;</span><br></pre></td></tr></table></figure>
+
+<h6 id="2-类型"><a href="#2-类型" class="headerlink" title="2. 类型"></a>2. 类型</h6><p>以下是 Angular 规范中常用的 commit 类型：</p>
+<ul>
+<li><strong>feat</strong>：新功能(feature)</li>
+<li><strong>fix</strong>：修复bug</li>
+<li><strong>docs</strong>：文档更改</li>
+<li><strong>style</strong>：代码格式（不影响功能，例如空格、分号等）</li>
+<li><strong>refactor</strong>：代码重构（不包括bug修复）</li>
+<li><strong>perf</strong>：性能优化</li>
+<li><strong>test</strong>：添加或修改测试代码</li>
+<li><strong>build</strong>：构建过程或辅助工具的更改</li>
+<li><strong>ci</strong>：持续集成过程的更改</li>
+<li><strong>chore</strong>：不属于以上类型的其他更改</li>
+<li><strong>revert</strong>：撤销之前的commit</li>
+</ul>
+<h6 id="3-范围"><a href="#3-范围" class="headerlink" title="3. 范围"></a>3. 范围</h6><p>范围是可选的，它描述了改动影响的模块或组件，例如 <code>$location</code>, <code>$browser</code>, <code>$compile</code> 等。</p>
+<h6 id="4-标题"><a href="#4-标题" class="headerlink" title="4. 标题"></a>4. 标题</h6><p>标题应该简短明了（50个字符以内），描述性的，并且使用现在时，例如 “Add login feature”。</p>
+<h6 id="5-描述"><a href="#5-描述" class="headerlink" title="5. 描述"></a>5. 描述</h6><p>描述是可选的，如果标题没有足够的信息，描述可以提供更多的细节。描述应该详细说明为什么做出这些改变以及它们是如何工作的。</p>
+<h6 id="6-正文"><a href="#6-正文" class="headerlink" title="6. 正文"></a>6. 正文</h6><p>如果提交包含正文，它应该提供更详细的解释，为什么这个改变是必须的，以及它解决了什么问题。</p>
+<h6 id="7-断行"><a href="#7-断行" class="headerlink" title="7. 断行"></a>7. 断行</h6><p>确保提交信息的任何一行不超过72个字符。这是为了提高可读性。</p>
+<h6 id="8-Revert"><a href="#8-Revert" class="headerlink" title="8. Revert"></a>8. Revert</h6><p>如果你的 commit 是一个 revert 操作，应该以 “revert: “ 开始，后面跟上被撤销的 commit 的标题。</p>
+<h6 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h6><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">feat(checkout): Add ability to checkout items</span><br><span class="line"></span><br><span class="line">The new checkout ability allows users to select items and pay for them.</span><br></pre></td></tr></table></figure>
+
+<h6 id="使用-Angular-规范的好处"><a href="#使用-Angular-规范的好处" class="headerlink" title="使用 Angular 规范的好处"></a>使用 Angular 规范的好处</h6><ul>
+<li><strong>清晰性</strong>：规范的提交信息格式让其他开发者能够快速理解每个提交的内容。</li>
+<li><strong>自动化</strong>：许多工具可以利用这种格式自动生成发布日志。</li>
+<li><strong>一致性</strong>：团队成员遵循相同的提交格式，有助于维护项目的整洁。</li>
+<li><strong>问题追踪</strong>：通过类型和范围，可以快速追踪特定功能或模块的更改历史。</li>
+</ul>
+<h6 id="实施-Angular-规范"><a href="#实施-Angular-规范" class="headerlink" title="实施 Angular 规范"></a>实施 Angular 规范</h6><p>可以使用一些工具来快速上手：</p>
+<p>Commitizen是一个撰写合格 Commit message 的工具。安装命令如下。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g commitizen</span><br></pre></td></tr></table></figure>
+
+<p>对于每一个项目你都需要运行一下命令来使用它：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">commitizen init cz-conventional-changelog --save --save-exact</span><br></pre></td></tr></table></figure>
+
+<p>这样就好啦，以后用到<code>git commit</code>的地方就用<code>git cz</code>吧！</p>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>Git是一个很容易上手的工具，但是想要精通其使用或许需要花一些时间，不过这些都是值得的。一旦你掌握了Git，也就掌握了大部分团队合作开发的方法。</p>
+<p>Have a nice day.</p>
+<h2 id="参考目录"><a href="#参考目录" class="headerlink" title="参考目录"></a>参考目录</h2><p><a target="_blank" rel="noopener" href="https://ruanyifeng.com/blog/2016/01/commit_message_change_log.html">Commit message 和 Change log 编写指南</a></p>
+<p><a target="_blank" rel="noopener" href="https://git-scm.com/book/zh/v2/">Git 指南</a></p>
+<p><a target="_blank" rel="noopener" href="https://learngitbranching.js.org/?locale=zh_CN">动态学习git branch</a></p>
 
       
     </div>
@@ -785,7 +889,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共5.6k字</span>
+  <span class="post-count">博客全站共7.1k字</span>
 </div>
 
 
